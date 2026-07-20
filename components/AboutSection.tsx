@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Button from "./common/Buttons";
 
 const stats = [
   {
@@ -60,8 +61,6 @@ const stats = [
     ),
   },
 ];
-
-/** Loose grid of faint circles/crescents echoing the decorative left margin in the reference. */
 function DecorativePattern() {
   const shapes = [
     { x: 30, y: 10, r: 34 },
@@ -126,12 +125,10 @@ export default function AboutSection() {
           <p className="text-[20px] leading-[30px] text-[#000]">
             Orange PR is Dubai's leading communication company, specializing in cultural, lifestyle, fashion and art. Our agency was founded on a culture of smart strategic thinking, creativity, and innovation that delivers successful solutions to our local, national, and international customer base. Our ability to create and execute dynamic, forward-thinking PR campaigns quickly, while maintaining quality, increasing visibility, and achieving the targeted objectives or aims, is the key to our success. By offering a full turn-key solution, companies partner with us because of our unique approach, which allows us to build a solid connection with you and your brand. Therefore plan, execute, and evaluate effective cross-media and cross-cultural campaigns.
           </p>
+<div className="mt-[20px]">
 
-          <Link href="/about-us"
-            className="block w-fit mt-8 rounded-sm bg-neutral-900 px-7 py-3 text-xs font-semibold uppercase tracking-wider text-white transition-colors hover:bg-neutral-800"
-          >
-            Read More
-          </Link>
+          <Button label="Read More" link="/about-us" variant="black"></Button>
+</div>
         </div>
       </div>
 
@@ -141,7 +138,7 @@ export default function AboutSection() {
           {stats.map((s, i) => (
             <div
               key={s.label}
-              className={`flex items-center max-[480px]:flex-col py-10  gap-4 sm:pl-4 md:pl-8 ${
+              className={`flex items-center max-[480px]:flex-col py-10  gap-4 sm:pl-4 md:pl-5 2xl:pl-6 ${
                 i > 0 ? "sm:border-l sm:border-[#F1F1F1]" : "sm:pl-0"
               }`}
             >
@@ -149,7 +146,7 @@ export default function AboutSection() {
                 {s.icon}
               </div>
               <div>
-                <p className="text-[22px] leading-none  max-xl:text-[20px] max-md:text-[18px] max-sm:text-[17px]  text-[#466378]">{s.label}</p>
+                <p className="text-[20px] leading-none  max-xl:text-[20px] max-md:text-[18px] max-sm:text-[17px]  text-[#466378]">{s.label}</p>
                 <p className="text-[30px] max-xl:text-[26px] max-md:text-[22px] max-sm:text-[20px] font-[500] text-[#000]">{s.value}</p>
               </div>
             </div>

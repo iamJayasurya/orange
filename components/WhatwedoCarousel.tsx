@@ -65,8 +65,8 @@ const MOBILE_WIDTH =
 
 const getWidthClass = (isActive: boolean) =>
   isActive
-    ? `${MOBILE_WIDTH} shrink-0 max-md:min-w-[300px] [@media(min-width:768px)]:flex-1 [@media(min-width:768px)]:shrink [@media(min-width:1024px)]:min-w-[320px]`
-    : `${MOBILE_WIDTH} shrink-0 max-md:w-[230px] [@media(min-width:768px)]:shrink-0 [@media(min-width:1024px)]:shrink-0   [@media(min-width:1024px)]:w-[185px]`;
+    ? `${MOBILE_WIDTH} shrink-0 max-md:min-w-[300px] [@media(min-width:768px)]:flex-1.5 [@media(min-width:768px)]:shrink [@media(min-width:768px)]:w-[500px]`
+    : `${MOBILE_WIDTH} shrink-0 [@media(min-width:768px)]:w-[200px] [@media(min-width:768px)]:shrink-0 [@media(min-width:1024px)]:shrink-0   [@media(min-width:1024px)]:w-[140px]`;
 
 export default function WhatWeDoCarousel() {
   const [active, setActive] = useState(0);
@@ -108,8 +108,8 @@ export default function WhatWeDoCarousel() {
   }, [active]);
 
   return (
-    <section className="w-full bg-white pt-20 md:pt-28">
-      <div className="grid w-[95%] max-w-[130rem] grid-cols-1 items-center justify-between gap-5 max-md:mx-auto max-md:w-[90%] md:ml-[5%]  min-[1100px]:grid-cols-[minmax(260px,360px)_55%] min-[1450px]:grid-cols-[minmax(260px,360px)_65%] min-[1100px]:h-[600px] xl:gap-[40px]">
+    <section className="w-full bg-white pt-20 md:pt-28 flex justify-center md:justify-end overflow-hidden  min-[1600px]:justify-center">
+      <div className="grid w-[95%] min-[1600px]:w-[90%] min-[1600px]:mx-auto max-w-[130rem] grid-cols-1 items-center justify-between  max-md:mx-auto max-md:w-[90%] min-[767px]:grid-cols-[minmax(260px,360px)_60%]  min-[1100px]:grid-cols-[minmax(260px,360px)_70%] min-[1450px]:grid-cols-[minmax(260px,360px)_60%] min-[1100px]:h-[600px] xl:gap-[40px]">
         <div className="min-w-0 max-md:w-full">
           <h2
             className="font-semibold uppercase leading-[1.08] tracking-tight text-neutral-900
@@ -142,7 +142,7 @@ export default function WhatWeDoCarousel() {
                     className={
                       i === active
                         ? "text-neutral-900"
-                        : "text-neutral-400 hover:text-neutral-600"
+                        : "text-neutral-400 hover:text-neutral-600 cursor-pointer"
                     }
                   >
                     {String(i + 1).padStart(2, "0")}

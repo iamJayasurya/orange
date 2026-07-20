@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 
 const quickLinks = ["Home", "PR Services", "About Us", "Contact Us"];
 
@@ -155,7 +156,7 @@ export default function Footer() {
             <h3 className="text-2xl font-extrabold tracking-tight sm:text-[1.75rem]">
               ORANGE PR
             </h3>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-white">
+            <p className="mt-4 max-w-[480px] text-sm leading-relaxed text-white">
               Orange PR is Dubai&apos;s leading communication company,
               specializing in cultural, lifestyle, fashion and art. Our
               agency was founded on a culture of smart strategic thinking,
@@ -213,14 +214,14 @@ export default function Footer() {
                   <rect x="7.5" y="3" width="9" height="18" rx="2" stroke="currentColor" strokeWidth="1.5" />
                   <path d="M11 18h2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
-                +971 58 58 7 3195
+                 <Link href="tel:+971585873195" className="transition duration-300 hover:text-[#fff]">+971 58 58 7 3195</Link>
               </li>
               <li className="flex items-center gap-3 text-[16px] text-white/70">
                 <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5 shrink-0">
                   <rect x="3.5" y="5.5" width="17" height="13" rx="2" stroke="currentColor" strokeWidth="1.5" />
                   <path d="M4 7l8 6 8-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                maria@orangepragency.com
+                <Link href="mailto:maria@orangepragency.com" className="transition duration-300 hover:text-[#fff]">maria@orangepragency.com</Link>
               </li>
             </ul>
           </div>
@@ -231,8 +232,8 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-[130rem] w-[90%] flex-col items-center justify-between gap-4  py-6 text-xs text-white/60 sm:flex-row">
           <p>
-            © 2025 Orange PR Agency. &nbsp;|&nbsp; Design &amp; Development by
-            : MightyWarners Technologies
+            © 2026 Orange PR Agency. &nbsp;|&nbsp; Design &amp; Development by
+            : <Link href="https://www.mightywarner.ae/" target="__blank" className="transition duration-300 hover:text-[#fff]"> MightyWarners Technologies</Link>
           </p>
           <div className="flex items-center gap-3">
             {socials.map((s) => (

@@ -128,6 +128,21 @@ export default function Header() {
                 <span className="text-lg font-extrabold text-white">
                   ORANGE PR
                 </span>
+                <button
+                  type="button"
+                  aria-label="Close menu"
+                  onClick={() => setOpen(false)}
+                  className="flex h-9 w-9 items-center justify-center text-white cursor-pointer"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
+                    <path
+                      d="M6 6l12 12M18 6L6 18"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </button>
               </div>
 
               <ul className="mt-12 flex flex-col gap-6">

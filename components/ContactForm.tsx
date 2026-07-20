@@ -13,14 +13,13 @@ export default function Contactform() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Connect your API here
+    // Backedn ApI 's
     setSubmitted(true);
   };
 
   return (
     <section className="relative w-full overflow-hidden">
       <div className="grid grid-cols-1 md:grid-cols-2">
-        {/* Left Image */}
         <div className="relative h-[260px] sm:h-[360px] md:h-[600px] xl:h-[700px] 2xl:h-[750px]">
           <Image
             src="/images/contact-us.webp"
@@ -31,8 +30,6 @@ export default function Contactform() {
             className="object-cover"
           />
         </div>
-
-        {/* Right Side */}
         <div className="relative bg-[#EFEFEF]">
           <div className="px-4 py-10 sm:px-6 md:absolute md:inset-0 md:flex md:items-center md:justify-center md:px-0 md:py-0">
             <div
@@ -96,7 +93,6 @@ export default function Contactform() {
                     onSubmit={handleSubmit}
                     className="mt-6 space-y-5"
                   >
-                    {/* Name */}
                     <div className="grid gap-4 md:grid-cols-2">
                       <input
                         type="text"
@@ -114,8 +110,6 @@ export default function Contactform() {
                         className={inputClass}
                       />
                     </div>
-
-                    {/* Email / Phone */}
                     <div className="grid gap-4 md:grid-cols-2">
                       <input
                         type="email"
@@ -132,8 +126,6 @@ export default function Contactform() {
                         className={inputClass}
                       />
                     </div>
-
-                    {/* Message */}
                     <textarea
                       name="comments"
                       rows={5}
@@ -141,7 +133,6 @@ export default function Contactform() {
                       className={`${inputClass} min-h-[150px] resize-none`}
                     />
 
-                    {/* Button */}
                     <button
                       type="submit"
                       className="
@@ -151,16 +142,12 @@ export default function Contactform() {
                         justify-center
                         rounded-[5px]
                         bg-black
-                        px-10
-                        py-4
-                        text-base
-                        font-medium
-                        uppercase
-                        tracking-wide
+                      block w-fit p-[15px_48px] uppercase text-[16px] leading-[20px] text-[500] cursor-pointer
                         text-white
                         transition-colors
-                        duration-200
-                        hover:bg-neutral-800
+                        duration-300
+                        border-1
+                        hover:bg-[#fff] hover:text-[#000]
                       "
                     >
                       Submit

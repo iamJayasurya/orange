@@ -30,9 +30,8 @@ const cards = [
   },
 ];
 
-// below sm  (< 640px)  -> 1 card per slide
-// sm to md  (640-768px) -> 2 cards per slide
-// md+       (>= 768px)  -> all 3, grid layout
+//card style 
+
 function useCardsPerView() {
   const [perView, setPerView] = useState(3);
 
@@ -71,8 +70,7 @@ export default function WhyChooseSection() {
 
   return (
     <section className="w-full bg-white px-4 sm:px-6 py-14 sm:py-20">
-      <div className="relative z-[1] mx-auto max-w-[90%]">
-        {/* Gray backdrop panel, sitting behind the heading + top half of the cards */}
+      <div className="relative z-[1] mx-auto max-w-[130rem] w-[90%]">
         <div className="absolute -left-[5%] top-0 -z-[1] h-[60%] w-[110%] rounded-t-[30px] bg-[#EFEFEF]" />
 
         <div className="px-6 pb-20 pt-12 sm:px-10 sm:pb-18 sm:pt-14 md:pb-20 md:pt-16">

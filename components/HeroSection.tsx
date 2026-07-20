@@ -31,7 +31,6 @@ export default function HeroSection() {
 
   return (
     <section className="relative h-screen w-full overflow-hidden bg-black">
-      {/* Background image, cross-fades between slides */}
       {SLIDES.map((s, i) => (
         <div
           key={s.bg}
@@ -42,14 +41,10 @@ export default function HeroSection() {
           aria-hidden={i !== active}
         />
       ))}
-      {/* Brand orange-to-pink wash, plus a touch of darkening so white text/UI stays legible */}
       <div className="absolute inset-0 bg-gradient-to-br from-orange-500/40 via-orange-400/10 to-pink-400/30 mix-blend-multiply" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-black/10" />
 
-      {/* Nav is rendered globally by <Header/> in page.tsx to avoid a duplicate navbar here. */}
-
-      {/* ---------- Headline + copy ---------- */}
-      <div className="absolute bottom-[30px] left-[5%] z-10 w-[92%] max-w-[620px]">
+      <div className="absolute bottom-[20px] left-[5%] z-13 w-[92%] max-w-[620px]">
         <h1 className="uppercase leading-[0.86] text-white">
           {slide.words.map((word, i) => (
             <span
@@ -115,11 +110,9 @@ export default function HeroSection() {
           </button>
         </div>
       </div>
-
-      {/* slider dots  */}
-      <div className="absolute inset-x-0 bottom-0 z-10">
+      <div className="absolute inset-x-0 bottom-0 z-10  flex justify-end">
         <div className="h-px w-full bg-white/25" />
-        <div className="flex items-center justify-end px-6 py-6 sm:px-10">
+        <div className="flex w-fit mr-0 items-center justify-end px-6 py-6 sm:px-10">
           <div className="flex items-center gap-3">
             <button
               type="button"

@@ -3,13 +3,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-/**
- * Photo-wall data.
- * Each column is a stack of tiles (top → bottom). A tile is either a
- * "photo" (with a flexGrow weight controlling its relative height) or a
- * "spacer" (the light gray empty blocks that create the staggered rhythm
- * in the reference design).
- */
 type Tile =
   | { type: "photo"; src: string; alt: string; grow: number }
   | { type: "spacer"; grow: number }
@@ -160,7 +153,7 @@ export default function HomeTestimonials() {
   const current = testimonials[active];
 
   return (
-    <section className="w-full bg-white px-6 py-20 md:py-28">
+    <section className="w-full bg-white px-6 pt-20 md:pt-28 pb-14 sm:pb-20">
       {/* Photo wall */}
       <div className="relative mx-auto grid aspect-[1241/449] w-full max-w-[880px] grid-cols-9 grid-rows-1 gap-2 sm:gap-3 md:gap-4">
         {columns.map((col, ci) => (
@@ -268,7 +261,7 @@ export default function HomeTestimonials() {
             type="button"
             onClick={() => go(-1)}
             aria-label="Previous testimonial"
-            className="flex h-6 w-6 items-center justify-center text-neutral-400 transition-colors hover:text-neutral-700"
+            className="flex h-6 w-6 items-center justify-center text-neutral-400 transition-colors hover:text-neutral-700 cursor-pointer"
           >
             <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4">
               <path
@@ -290,7 +283,7 @@ export default function HomeTestimonials() {
                   className={
                     i === active
                       ? "font-semibold text-neutral-900"
-                      : "text-neutral-400 transition-colors hover:text-neutral-600"
+                      : "text-neutral-400 transition-colors hover:text-neutral-600 cursor-pointer"
                   }
                 >
                   {String(i + 1).padStart(2, "0")}
@@ -306,7 +299,7 @@ export default function HomeTestimonials() {
             type="button"
             onClick={() => go(1)}
             aria-label="Next testimonial"
-            className="flex h-6 w-6 items-center justify-center text-neutral-400 transition-colors hover:text-neutral-700"
+            className="flex h-6 w-6 items-center justify-center text-neutral-400 transition-colors hover:text-neutral-700 cursor-pointer"
           >
             <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4">
               <path
