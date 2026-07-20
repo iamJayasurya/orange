@@ -36,9 +36,7 @@ const socials = [
   {
     name: "LinkedIn",
     href: "#",
-    icon: (
-      <span className="text-[10px] font-bold leading-none">in</span>
-    ),
+    icon: <span className="text-[10px] font-bold leading-none">in</span>,
   },
   {
     name: "Instagram",
@@ -54,9 +52,7 @@ const socials = [
   {
     name: "Pinterest",
     href: "#",
-    icon: (
-      <span className="text-[11px] font-bold leading-none">P</span>
-    ),
+    icon: <span className="text-[11px] font-bold leading-none">P</span>,
   },
   {
     name: "YouTube",
@@ -73,18 +69,18 @@ const socials = [
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const [quickLinksOpen, setQuickLinksOpen] = useState(false);
 
   const handleSubscribe = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!email) return;
-    // Wire this up to your newsletter provider of choice.
     setSubscribed(true);
     setEmail("");
   };
 
   return (
     <footer className="w-full bg-black text-white">
-      {/* Newsletter */}
+
       <div className="mx-auto w-[90%] max-w-[130rem] py-12 md:py-16">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between lg:grid lg:gap-10 md:grid-cols-[1.65fr_1fr_1fr] xl:grid-cols-[1.9fr_2fr]">
           <div>
@@ -149,7 +145,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Main columns */}
       <div className="border-t border-white/10">
         <div className="mx-auto grid max-w-[130rem] w-[90%] gap-10 py-5 sm:py-8 md:py-12 md:grid-cols-[1.75fr_1fr_1fr] xl:grid-cols-[2fr_1fr_1fr] md:py-16">
           <div>
@@ -169,19 +164,68 @@ export default function Footer() {
             </p>
           </div>
 
-          <div>
-            <h4 className="text-[18px] font-bold tracking-wide text-white">
+          <div className="border-b border-white/10 py-4 md:border-none md:py-0">
+            <button
+              type="button"
+              onClick={() => setQuickLinksOpen((prev) => !prev)}
+              aria-expanded={quickLinksOpen}
+              className="flex w-full items-center justify-between text-[18px] font-bold tracking-wide text-white md:pointer-events-none md:cursor-default"
+            >
               QUICK LINKS
-            </h4>
-            <ul className="mt-4 space-y-3">
+              <motion.svg
+                viewBox="0 0 24 24"
+                fill="none"
+                className="h-4 w-4 shrink-0 md:hidden"
+                animate={{ rotate: quickLinksOpen ? 180 : 0 }}
+                transition={{ duration: 0.25, ease: "easeInOut" }}
+              >
+                <path
+                  d="M6 9l6 6 6-6"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </motion.svg>
+            </button>
+
+            <div className="md:hidden">
+              <AnimatePresence initial={false}>
+                {quickLinksOpen && (
+                  <motion.ul
+                    key="quick-links-mobile"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.25, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div className="space-y-3 pt-4 border-t border-[#fff]/50 mt-4">
+                      {quickLinks.map((link) => (
+                        <li key={link} className="list-none">
+                          <Link
+                            href="#"
+                            className="text-[16px] text-white/70 transition-colors hover:text-white"
+                          >
+                            {link.toUpperCase()}
+                          </Link>
+                        </li>
+                      ))}
+                    </div>
+                  </motion.ul>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <ul className="mt-4 hidden space-y-3 md:block ">
               {quickLinks.map((link) => (
                 <li key={link}>
-                  <a
+                  <Link
                     href="#"
                     className="text-[16px] text-white/70 transition-colors hover:text-white"
                   >
                     {link.toUpperCase()}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -214,7 +258,7 @@ export default function Footer() {
                   <rect x="7.5" y="3" width="9" height="18" rx="2" stroke="currentColor" strokeWidth="1.5" />
                   <path d="M11 18h2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
-                 <Link href="tel:+971585873195" className="transition duration-300 hover:text-[#fff]">+971 58 58 7 3195</Link>
+                <Link href="tel:+971585873195" className="transition duration-300 hover:text-[#fff]">+971 58 58 7 3195</Link>
               </li>
               <li className="flex items-center gap-3 text-[16px] text-white/70">
                 <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5 shrink-0">
@@ -228,7 +272,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar */}
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-[130rem] w-[90%] flex-col items-center justify-between gap-4  py-6 text-xs text-white/60 sm:flex-row">
           <p>
@@ -237,14 +280,14 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-3">
             {socials.map((s) => (
-              <a
+              <Link
                 key={s.name}
                 href={s.href}
                 aria-label={s.name}
                 className="flex h-8 w-8 items-center justify-center rounded-full text-white/80 transition-colors hover:border-white/50 hover:text-white"
               >
                 {s.icon}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

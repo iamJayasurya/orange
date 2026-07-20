@@ -19,7 +19,7 @@ const SLIDES = [
   },
 ];
 
-const WEIGHT_CLASSES = ["font-light", "font-semibold translate-x-[-20px]", "font-black"];
+const WEIGHT_CLASSES = ["font-light", "font-semibold translate-x-[-20px]  max-md:translate-x-[-10px]", "font-black"];
 
 export default function HeroSection() {
   const [active, setActive] = useState(0);
@@ -30,7 +30,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-black">
+    <section className="relative max-[767px]:h-[600px]  max-[640px]:h-[550px] h-screen w-full overflow-hidden bg-black">
       {SLIDES.map((s, i) => (
         <div
           key={s.bg}
@@ -44,8 +44,8 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-orange-500/40 via-orange-400/10 to-pink-400/30 mix-blend-multiply" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-black/10" />
 
-      <div className="absolute bottom-[20px] left-[5%] z-13 w-[92%] max-w-[620px]">
-        <h1 className="uppercase leading-[0.86] text-white">
+      <div className="absolute bottom-[20px]  max-[640px]:bottom-[100px] left-[5%] z-13 w-[92%] max-w-[620px]">
+        <h1 className="uppercase leading-[0.86] text-white  max-[640px]:mb-[20px]">
           {slide.words.map((word, i) => (
             <span
               key={word}
@@ -56,33 +56,11 @@ export default function HeroSection() {
           ))}
         </h1>
 
-        <p className="mb-[100px] max-[767px]:mb-[20px] max-[640px]:mb-[60px] mt-[50px] max-[767px]:max-w-[90%]  max-w-[430px] text-[16px] leading-relaxed text-[#fff]">
+        <p className="mb-[100px] max-[767px]:mb-[20px] max-[640px]:hidden mt-[50px] max-[767px]:max-w-[90%]  max-w-[430px] text-[16px] leading-relaxed text-[#fff]">
           {slide.copy}
         </p>
 
-        <div className=" z-10  w-[260px] rounded-[10px] border border-white/25 bg-white/30 p-2.5 backdrop-blur-md  lg:right-10 lg:w-[320px] min-[1550px]:w-[350px] group/video hidden  max-[640px]:hidden  max-[767px]:block max-[767px]:mb-[70px]">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-[10px]">
-          <Image
-            src={slide.video}
-            alt="Behind the scenes at Orange PR"
-            fill
-            className="object-cover group-hover/video:scale-[1.05]  transition duration-300"
-            sizes="280px"
-          />
-
-          
-
-          <button
-            type="button"
-            aria-label="Play video"
-            className="absolute left-1/2 top-1/2 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/80 backdrop-blur-[10px] text-[#fff] shadow-lg transition-transform group-hover/video:scale-105 flex  items-center justify-center cursor-pointer"
-          >
-            <svg width="16" height="16" viewBox="0 0 16 18" fill="currentColor" className="pl-[3px]">
-              <path d="M0 0L16 9L0 18V0Z" />
-            </svg>
-          </button>
-        </div>
-      </div>
+        
 
         <Button link="/about" label="Explore" variant="white" />
       </div>
@@ -110,9 +88,9 @@ export default function HeroSection() {
           </button>
         </div>
       </div>
-      <div className="absolute inset-x-0 bottom-0 z-10  flex justify-end">
-        <div className="h-px w-full bg-white/25" />
-        <div className="flex w-fit mr-0 items-center justify-end px-6 py-6 sm:px-10">
+      <div className="absolute inset-x-0 bottom-0 z-10 border-t border-white/25   flex justify-end">
+        <div className="h-px w-full bg-white/25 " />
+        <div className="flex w-fit mr-0 items-center justify-end px-6 py-4 md:py-6 sm:px-10">
           <div className="flex items-center gap-3">
             <button
               type="button"

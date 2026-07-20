@@ -130,10 +130,10 @@ export default function WhatWeDoCarousel() {
             text.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-6">
+          <div className="mt-8 flex flex-wrap items-center gap-6  max-md:w-full max-md:justify-between">
             <Button variant="black" link="/about-us" label="Read More" />
 
-            <div className="flex items-center gap-1.5 text-sm font-semibold">
+            <div className="flex items-center gap-1.5 text-sm font-semibold   ">
               {slides.map((s, i) => (
                 <span key={s.id} className="flex items-center gap-1.5">
                   <button
@@ -159,7 +159,7 @@ export default function WhatWeDoCarousel() {
         {/* Right column: carousel. Below md it's a real snap-slider
            (overflow-x-auto + snap-x); from md up the track no longer
            scrolls — the active card just expands in place. */}
-        <div className="min-w-0">
+        <div className="min-w-0 max-md:mt-[20px]">
           <div
             ref={trackRef}
             className="flex items-start gap-4 overflow-x-auto scroll-smooth pb-1 snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [@media(min-width:768px)]:overflow-visible [@media(min-width:768px)]:snap-none [&::-webkit-scrollbar]:hidden"

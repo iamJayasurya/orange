@@ -108,7 +108,7 @@ export default function AboutSection() {
             Promote.
           </h2>
 
-      <div className="relative z-1  mt-8 mx-auto grid max-w-7xl gap-12  lg:grid-cols-[300px_auto] lg:gap-20 ">
+      <div className="relative z-1  mt-8 mx-auto grid max-w-7xl gap-[20px]  lg:grid-cols-[300px_auto] lg:gap-20 ">
         <div>
 
           <div className="relative aspect-[4/5] w-full max-w-[300px] overflow-hidden rounded-sm">
@@ -122,7 +122,7 @@ export default function AboutSection() {
         </div>
 
         <div className="">
-          <p className="text-[20px] leading-[30px] text-[#000]">
+          <p className="text-[20px] leading-[30px] max-md:text-[18px] max-md:leading-[28px] text-[#000]">
             Orange PR is Dubai's leading communication company, specializing in cultural, lifestyle, fashion and art. Our agency was founded on a culture of smart strategic thinking, creativity, and innovation that delivers successful solutions to our local, national, and international customer base. Our ability to create and execute dynamic, forward-thinking PR campaigns quickly, while maintaining quality, increasing visibility, and achieving the targeted objectives or aims, is the key to our success. By offering a full turn-key solution, companies partner with us because of our unique approach, which allows us to build a solid connection with you and your brand. Therefore plan, execute, and evaluate effective cross-media and cross-cultural campaigns.
           </p>
 <div className="mt-[20px]">
@@ -146,8 +146,8 @@ export default function AboutSection() {
                 {s.icon}
               </div>
               <div>
-                <p className="text-[20px] leading-none  max-xl:text-[20px] max-md:text-[18px] max-sm:text-[17px]  text-[#466378]">{s.label}</p>
-                <p className="text-[30px] max-xl:text-[26px] max-md:text-[22px] max-sm:text-[20px] font-[500] text-[#000]">{s.value}</p>
+                <p className="text-[20px] leading-none max-[480px]:text-center  max-xl:text-[20px] max-md:text-[18px] max-sm:text-[17px]  text-[#466378]">{s.label}</p>
+                <p className="text-[30px] max-xl:text-[26px]  max-[480px]:text-center max-md:text-[22px] max-sm:text-[20px] font-[500] text-[#000]">{s.value}</p>
               </div>
             </div>
           ))}

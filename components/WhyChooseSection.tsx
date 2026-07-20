@@ -69,11 +69,11 @@ export default function WhyChooseSection() {
       : cards.slice(currentPage * perView, currentPage * perView + perView);
 
   return (
-    <section className="w-full bg-white px-4 sm:px-6 py-14 sm:py-20">
+    <section className="w-full bg-white px-4 sm:px-6 pt-14 md:py-20">
       <div className="relative z-[1] mx-auto max-w-[130rem] w-[90%]">
         <div className="absolute -left-[5%] top-0 -z-[1] h-[60%] w-[110%] rounded-t-[30px] bg-[#EFEFEF]" />
 
-        <div className="px-6 pb-20 pt-12 sm:px-10 sm:pb-18 sm:pt-14 md:pb-20 md:pt-16">
+        <div className="px-6 pb-10 pt-12 sm:px-10 md:pb-15 sm:pt-14 xl:pb-20 md:pt-16">
           <h2
             className="text-center font-semibold uppercase tracking-tight text-neutral-900
                        text-[26px] leading-[32px]
