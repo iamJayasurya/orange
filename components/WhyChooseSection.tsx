@@ -11,6 +11,7 @@ const cards = [
       "We provide end-to-end PR and digital marketing solutions for businesses entering India.",
     image: "/images/market-entry.webp",
     bg: "bg-[#AEB4B9]",
+    hover:"bg-[#AEB4B9]/30"
   },
   {
     number: "02",
@@ -19,6 +20,7 @@ const cards = [
       "Our network spans top Indian publications, ensuring maximum visibility for your brand.",
     image: "/images/strong-media.webp",
     bg: "bg-[#FD9073]",
+    hover:"bg-[#FD9073]/30"
   },
   {
     number: "03",
@@ -27,6 +29,7 @@ const cards = [
       "We tailor messaging to resonate with Indian consumers, investors, and stakeholders.",
     image: "/images/localized-storytelling.webp",
     bg: "bg-[#FBB78C]",
+    hover:"bg-[#FBB78C]/30"
   },
 ];
 
@@ -85,19 +88,16 @@ export default function WhyChooseSection() {
           </h2>
         </div>
 
-        {/* Cards — below md, only the current page's cards are shown (1 below sm, 2 below md);
-            at md+ all three show in a grid */}
         <div className="flex flex-wrap justify-center gap-6 px-1 md:grid md:grid-cols-3 md:px-0">
           {visibleCards.map((card) => {
             const originalIndex = cards.indexOf(card);
             return (
               <div
                 key={card.number}
-                className={`flex w-full max-sm:max-w-[100%] max-w-[280px] md:max-w-[300px] md:max-w-none flex-col rounded-3xl p-6 text-white shadow-lg shadow-black/10 sm:p-7 h-[380px] md:h-[420px] xl:h-[500px] ${
+                className={`flex w-full max-sm:max-w-[100%] max-w-[280px] md:max-w-[300px] md:max-w-none flex-col rounded-3xl p-6 text-white shadow-lg shadow-black/10 sm:p-7 transition duration-300 group/card h-[380px] md:h-[420px] xl:h-[500px]   ${
                   card.bg
-                } ${originalIndex === 1 ? "md:translate-y-[80px]" : ""}`}
+                } hover:${card.hover}  ${originalIndex === 1 ? "md:translate-y-[80px] hover:translate-y-[65px]" : "hover:translate-y-[-15px]"}`}
               >
-                {/* Number + thumbnail */}
                 <div className="flex items-start justify-between gap-3">
                   <span className="text-6xl font-[600] leading-none tracking-tight sm:text-7xl">
                     {card.number}
@@ -108,12 +108,11 @@ export default function WhyChooseSection() {
                       alt={card.title}
                       fill
                       sizes="96px"
-                      className="object-cover"
+                      className="object-cover transition duration-300  group-hover/card:scale-[1.05]"
                     />
                   </div>
                 </div>
 
-                {/* Title + description, pinned to the bottom of the card */}
                 <div className="mt-auto pt-10">
                   <h3 className="text-[#fff] font-[600] uppercase leading-snug tracking-tight text-[20px] leading-[24px] md:text-[20px] md:leading-[30px] xl:text-[24px] xl:leading-[32px] max-w-[320px]">
                     {card.title}
@@ -127,7 +126,6 @@ export default function WhyChooseSection() {
           })}
         </div>
 
-        {/* Slide navigation — mobile/tablet only (hidden once perView reaches 3 at md+) */}
         {perView < 3 && (
           <div className="mt-6 flex justify-center">
             <div className="flex items-center gap-1.5 text-sm font-semibold">

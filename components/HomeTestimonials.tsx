@@ -154,8 +154,8 @@ export default function HomeTestimonials() {
 
   return (
     <section className="w-full bg-white px-6 pt-20 md:pt-28 pb-14 sm:pb-20">
-      {/* Photo wall */}
-      <div className="relative mx-auto grid aspect-[1241/449] w-full max-w-[880px] grid-cols-9 grid-rows-1 gap-2 sm:gap-3 md:gap-4">
+     
+      <div className="relative mx-auto grid aspect-[1241/449] w-full max-w-[900px] min-[1300px]:max-w-[1200px] grid-cols-9 grid-rows-1 gap-2 sm:gap-3 md:gap-4">
         {columns.map((col, ci) => (
           <div key={ci} className="flex h-full min-w-0 flex-col gap-2 sm:gap-3 md:gap-4">
             {col.map((tile, ti) => {
@@ -164,7 +164,7 @@ export default function HomeTestimonials() {
                   <div
                     key={ti}
                     style={{ flexGrow: tile.grow, flexBasis: 0 }}
-                    className="relative min-h-0 w-full overflow-hidden rounded-md sm:rounded-lg"
+                    className="relative min-h-0 w-full overflow-hidden rounded-md sm:rounded-lg transition duration-300  hover:translate-y-[-10px]"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
@@ -235,7 +235,7 @@ export default function HomeTestimonials() {
             transition={{ duration: 0.35, ease: "easeOut" }}
             className="flex flex-col items-center"
           >
-            <div className="w-10 h-10 xl:h-16 xl:w-16 overflow-hidden rounded-full ring-1 ring-black/5">
+            <div className="w-10 h-10 xl:h-16 xl:w-16 overflow-hidden rounded-full ring-1 ring-black/5 ">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={current.avatar}

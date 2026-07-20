@@ -88,8 +88,6 @@ export default function WhatWeDoCarousel() {
     return () => window.removeEventListener("resize", measure);
   }, []);
 
-  // Keep the active card in view without relying on hard-coded pixel math,
-  // so this keeps working at any viewport width / card size.
   useEffect(() => {
     const card = cardRefs.current[active];
     const track = trackRef.current;
@@ -156,10 +154,7 @@ export default function WhatWeDoCarousel() {
           </div>
         </div>
 
-        {/* Right column: carousel. Below md it's a real snap-slider
-           (overflow-x-auto + snap-x); from md up the track no longer
-           scrolls — the active card just expands in place. */}
-        <div className="min-w-0 max-md:mt-[20px]">
+        <div className="min-w-0 max-md:mt-[20px]  ">
           <div
             ref={trackRef}
             className="flex items-start gap-4 overflow-x-auto scroll-smooth pb-1 snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [@media(min-width:768px)]:overflow-visible [@media(min-width:768px)]:snap-none [&::-webkit-scrollbar]:hidden"
@@ -193,10 +188,6 @@ export default function WhatWeDoCarousel() {
                     priority={isActive}
                   />
 
-                  {/* Every card gets the same glass-blur treatment — just a
-                     shorter panel for cards with less text to host:
-                     active (title + description + button) needs the most
-                     room, the near/far tiers taper down to just the title. */}
                   <div
                     className={`pointer-events-none absolute inset-x-0 bottom-0 backdrop-blur-md transition-[height] duration-500 ${
                       isActive
