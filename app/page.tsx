@@ -11,16 +11,16 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div>
-        {/* <Header/> */}
+        <Header/>
       <main>
-        {/* <HeroSection/> */}
+        <HeroSection/>
         <AboutSection/>
         <WhatWeDoCarousel/>
         <WhyChooseSection/>
-        {/* <HomeTestimonials/> */}
-        {/* <Contactform/> */}
+        <HomeTestimonials/>
+        <Contactform/>
       </main>
-      {/* <Footer/> */}
+      <Footer/>
     </div>
   );
 }
